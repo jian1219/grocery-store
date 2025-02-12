@@ -1,0 +1,16 @@
+{
+  "name": "grocery-scanner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^34.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

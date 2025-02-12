@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Signup</h2>
+        <input id="signup-name" type="text" placeholder="First Name">
+        <input id="signup-lastname" type="text" placeholder="Last Name">
+        <input id="signup-username" type="text" placeholder="Username">
+        <input id="signup-password" type="password" placeholder="Password">
+        <button onclick="signup()">Sign Up</button>
+        <p id="signup-message"></p>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        function signup() {
+            const name = document.getElementById('signup-name').value;
+            const lastname = document.getElementById('signup-lastname').value;
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+
+            ipcRenderer.send('signup', { name, lastname, username, password });
+        }
+
+        ipcRenderer.on('signup-reply', (event, response) => {
+            document.getElementById('signup-message').innerText = response.message;
+            if (response.success) {
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
