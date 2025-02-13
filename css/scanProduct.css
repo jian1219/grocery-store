@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.nav{
+    margin-top: 30px;
+}
+.h1-center{
+    text-align: center;
+}
+.buttons{
+    display: grid;
+    margin: 30px 20px 10px 20px;
+    
+}
+.buttons button{
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
+.main{
+    margin: 10px 40px 10px 20px;
+}
+
+.main .top{
+    margin-top: 30px;
+}
+
+.active{
+    background-color: rgb(62, 62, 62);
+    color: white;
+}

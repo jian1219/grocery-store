@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sales.css">
+    <title>Sales</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1 class="h1-center">Dashboard</h1>
+            <div class="buttons">
+                <button onclick="goToHome()">Home</button>
+                <button onclick="goToUser()">User</button>
+                <button onclick="goToScanProduct()">Scan Product</button>
+                <button onclick="goToSales()" class="active">Sales</button>
+                <button onclick="goToCustomerHistory()">Customer History</button>
+            </div>
+        </div>
+
+        <div class="main">
+           <div class="top">
+                <h2>SALES</h2>
+           </div>
+
+          
+        </div>
+    </div>
+
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        function goToHome() {
+            window.location.href = 'dashboard.html';
+        }
+
+        function goToUser() {
+            window.location.href = 'user.html';
+        }
+
+        function goToScanProduct() {
+            window.location.href = 'scanProduct.html';
+        }
+
+        function goToSales() {
+            window.location.href = 'sales.html';
+        }
+
+        function goToCustomerHistory() {
+            window.location.href = 'customerHistory.html';
+        }
+
+        function logout() {
+            // Clear user data and redirect to login
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
+    </script>
+</body>
+</html>

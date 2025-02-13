@@ -12,10 +12,10 @@
             <h1 class="h1-center">Dashboard</h1>
             <div class="buttons">
                 <button onclick="goToHome()">Home</button>
-                <button class="active">User</button>
-                <button>Scan Product</button>
-                <button>Sales</button>
-                <button>Customer History</button>
+                <button onclick="goToUser()" class="active">User</button>
+                <button onclick="goToScanProduct()">Scan Product</button>
+                <button onclick="goToSales()">Sales</button>
+                <button onclick="goToCustomerHistory()">Customer History</button>
             </div>
         </div>
 
@@ -82,6 +82,24 @@
         });
 
         window.onload = loadUsers;
+
+        function goToScanProduct() {
+            window.location.href = 'scanProduct.html';
+        }
+
+        function goToSales() {
+            window.location.href = 'sales.html';
+        }
+
+        function goToCustomerHistory() {
+            window.location.href = 'customerHistory.html';
+        }
+
+        function logout() {
+            // Clear user data and redirect to login
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
     </script>
 </body>
 </html>

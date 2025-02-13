@@ -14,9 +14,10 @@
             <div class="buttons">
                 <button class="active">Home</button>
                 <button onclick="goToUser()">User</button>
-                <button>Scan Product</button>
-                <button>Sales</button>
-                <button>Customer History</button>
+                <button onclick="goToScanProduct()">Scan Product</button>
+                <button onclick="goToSales()">Sales</button>
+                <button onclick="goToCustomerHistory()">Customer History</button>
+                
             </div>
         </div>
         <div class="main">
@@ -70,6 +71,18 @@
     
         function goToUser() {
             window.location.href = 'user.html';
+        }
+
+        function goToScanProduct() {
+            window.location.href = 'scanProduct.html';
+        }
+
+        function goToSales() {
+            window.location.href = 'sales.html';
+        }
+
+        function goToCustomerHistory() {
+            window.location.href = 'customerHistory.html';
         }
     </script>
     
