@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.nav{
+    margin-top: 30px;
+}
+.h1-center{
+    text-align: center;
+}
+.buttons{
+    display: grid;
+    margin: 30px 20px 10px 20px;
+    
+}
+.buttons button{
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
+.main{
+    margin: 10px 40px 10px 20px;
+}
+
+.main .top{
+    margin-top: 30px;
+}
+
+.active{
+    background-color: rgb(62, 62, 62);
+    color: white;
+}
+
+
+.user-list{
+    background-color: rgb(198, 198, 198);
+    margin-top: 20px;
+}
+.user-list .user-row{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.user-list .user-row .column{
+    width: 150px;
+    border-right: 1px solid black;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+.user-list .user-row .column-data{
+    width: 150px;
+    border-right: 1px solid black;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   
+}
+
+.edit-btn{
+    background-color: blue;
+    color: white;
+    padding: 4px 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.edit-btn:hover{
+    background-color: rgb(1, 1, 101);
+}
+
+.delete-btn{
+    background-color: red;
+    color: white;
+    padding: 4px 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.delete-btn:hover{
+    background-color: rgb(134, 0, 0);
+}

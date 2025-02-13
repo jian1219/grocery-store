@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/user.css">
+    <title>User</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1 class="h1-center">Dashboard</h1>
+            <div class="buttons">
+                <button onclick="goToHome()">Home</button>
+                <button class="active">User</button>
+                <button>Scan Product</button>
+                <button>Sales</button>
+                <button>Customer History</button>
+            </div>
+        </div>
+
+        <div class="main">
+           <div class="top">
+                <h2>USER LIST</h2>
+           </div>
+
+           <div class="user-list">
+                <div class="user-row header">
+                    <div class="column">Name</div>
+                    <div class="column">Lastname</div>
+                    <div class="column">Availability</div>
+                    <div class="column">Actions</div>
+                </div>
+
+                <div id="user-container">
+                    <!-- User data will be inserted here dynamically -->
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        function goToHome() {
+            window.location.href = 'dashboard.html';
+        }
+
+        function loadUsers() {
+            ipcRenderer.send('get-users');
+        }
+
+        ipcRenderer.on('users-data', (event, users) => {
+            const userContainer = document.getElementById('user-container');
+            userContainer.innerHTML = '';
+
+            users.forEach(user => {
+                const userRow = document.createElement('div');
+                userRow.classList.add('user-row');
+
+                userRow.innerHTML = `
+                    <div class="column-data">${user.name}</div>
+                    <div class="column-data">${user.lastname}</div>
+                    <div class="column-data"></div>  <!-- Blank availability column -->
+                    <div class="column actions">
+                        <button class="edit-btn" onclick="editUser(${user.id})">Edit</button>
+                        <button class="delete-btn" onclick="deleteUser(${user.id})">Delete</button>
+                    </div>
+                `;
+                userContainer.appendChild(userRow);
+            });
+        });
+
+        function deleteUser(id) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                ipcRenderer.send('delete-user', id);
+            }
+        }
+
+        ipcRenderer.on('user-deleted', () => {
+            loadUsers();
+        });
+
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>

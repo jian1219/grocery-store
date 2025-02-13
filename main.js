@@ -34,12 +34,18 @@ ipcMain.on('login', (event, { username, password }) => {
         if (err) {
             event.reply('login-reply', { success: false, message: 'Database error' });
         } else if (row) {
-            event.reply('login-reply', { success: true, message: 'Login successful', redirect: 'dashboard.html' });
+            event.reply('login-reply', { 
+                success: true, 
+                message: `Welcome, ${row.name} ${row.lastname}!`, 
+                redirect: 'dashboard.html',
+                user: { name: row.name, lastname: row.lastname } // Send user data
+            });
         } else {
             event.reply('login-reply', { success: false, message: 'Invalid credentials' });
         }
     });
 });
+
 
 // Handle user signup
 ipcMain.on('signup', (event, { name, lastname, username, password }) => {
@@ -56,3 +62,25 @@ ipcMain.on('signup', (event, { name, lastname, username, password }) => {
         }
     );
 });
+
+ipcMain.on('get-users', (event) => {
+    db.all('SELECT id, name, lastname FROM users', [], (err, rows) => {
+        if (err) {
+            console.error(err);
+            event.reply('users-data', []);
+        } else {
+            event.reply('users-data', rows);
+        }
+    });
+});
+
+ipcMain.on('delete-user', (event, userId) => {
+    db.run('DELETE FROM users WHERE id = ?', userId, (err) => {
+        if (err) {
+            console.error(err);
+        } else {
+            event.reply('user-deleted');
+        }
+    });
+});
+

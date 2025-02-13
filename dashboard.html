@@ -4,19 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
     <div class="container">
-        <h2>Welcome to the Dashboard</h2>
-        <p>You are now logged in.</p>
-        <button onclick="logout()">Logout</button>
+   
+        <div class="nav">
+            <h1 class="h1-center">Dashboard</h1>
+            <div class="buttons">
+                <button class="active">Home</button>
+                <button onclick="goToUser()">User</button>
+                <button>Scan Product</button>
+                <button>Sales</button>
+                <button>Customer History</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="top">
+                <h2 class="adjust-top">WELCOME</h2>
+                <div class="username">
+                    <img class="user-icon" src="icons/profile-user (2).png" alt="">
+                    <h4 id="user-name"> Loading...</h4>
+                </div>
+               
+        
+            </div>
+
+            <div class="info">
+                <div class="box">
+                    <p>INVENTORY</p>
+                    <p class="count">450</p>
+                </div>
+                <div class="box">
+                    <p>SALES</p>
+                    <p class="count">20000</p>
+                </div>
+                <div class="box">
+                    <p>CUSTOMER</p>
+                    <P class="count">2</P>
+                </div>
+            </div>
+        </div>
+       
     </div>
 
     <script>
+        window.onload = function() {
+            // Get user data from localStorage
+            const user = JSON.parse(localStorage.getItem('user'));
+    
+            // If user exists, update the welcome message
+            if (user) {
+                document.getElementById('user-name').innerText = `${user.name} ${user.lastname}`;
+            } else {
+                // If no user is found, redirect to login page
+                window.location.href = 'login.html';
+            }
+        };
+    
         function logout() {
+            // Clear user data and redirect to login
+            localStorage.removeItem('user');
             window.location.href = 'login.html';
         }
+    
+        function goToUser() {
+            window.location.href = 'user.html';
+        }
     </script>
+    
+    
 </body>
 </html>

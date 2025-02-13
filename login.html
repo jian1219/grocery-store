@@ -18,26 +18,31 @@
 
     <script>
         const { ipcRenderer } = require('electron');
-
+    
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            
+    
             ipcRenderer.send('login', { username, password });
         }
-
+    
         ipcRenderer.on('login-reply', (event, response) => {
             document.getElementById('message').innerText = response.message;
             if (response.success) {
+                // Store user data in localStorage
+                localStorage.setItem('user', JSON.stringify(response.user));
+    
+                // Redirect to Dashboard
                 setTimeout(() => {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = response.redirect;
                 }, 1000);
             }
         });
-
+    
         function goToSignup() {
             window.location.href = 'signup.html';
         }
     </script>
+    
 </body>
 </html>
