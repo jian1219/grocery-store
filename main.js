@@ -18,7 +18,7 @@ db.run(`CREATE TABLE IF NOT EXISTS users (
 
 app.whenReady().then(() => {
     mainWindow = new BrowserWindow({
-        width: 1000,
+        width: 1300,
         height: 800,
         webPreferences: {
             nodeIntegration: true,
@@ -37,7 +37,7 @@ ipcMain.on('login', (event, { username, password }) => {
             event.reply('login-reply', { 
                 success: true, 
                 message: `Welcome, ${row.name} ${row.lastname}!`, 
-                redirect: 'dashboard.html',
+                redirect: 'dashboardNew.html',
                 user: { name: row.name, lastname: row.lastname } // Send user data
             });
         } else {

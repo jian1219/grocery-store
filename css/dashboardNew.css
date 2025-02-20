@@ -1,0 +1,189 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+.header{
+    background-color: rgb(163, 163, 163);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+.header .left{
+
+}
+.header .left h1{
+    font-size: 25px;
+    color: rgb(36, 36, 36);
+}
+.header .right{
+    display: flex;
+    align-items: center;
+}
+.header .right .info{
+    margin-right: 10px;
+}
+.header .right .buttons{
+    display: flex;
+}
+.header .right .buttons button{
+    width: 50px;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    padding: 5px 0;
+}
+.header .right .buttons img{
+    width: 20px;
+}
+.back-button{
+    background-color: rgb(47, 47, 47);
+    margin-right: 5px;
+}
+.power-button{
+    background-color: rgb(171, 0, 0);
+}
+
+
+
+.core-container{
+    background-color: rgb(32, 32, 32);
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    
+}
+.core-container .left .upper{
+    display: flex;
+    align-items: center;
+}
+.core-container .left .upper img{
+    width: 50px;
+    height: 40px;
+    margin-right: 5px;
+}
+.core-container .left .upper h2{
+    padding: 5px 5px;
+    color: white;
+    border: 1px solid rgb(67, 67, 67);
+    font-size: 20px;
+    margin: 0 5px;
+    font-weight: 600
+}
+.core-container .left .upper .barcode-ref input{
+    background-color: rgb(51, 51, 51);
+    width: 500px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+.core-container .left .upper select{
+    width: 200px;
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 600;
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+.core-container .left .lower .columns{
+    display: flex;
+    background-color: rgb(126, 125, 125);
+    padding: 5px 10px;
+    color: white;
+}
+
+.core-container .left .lower .columns .column-1{
+    width: 100px;
+}
+.core-container .left .lower .columns .column-2{
+    width: 300px;
+}
+.core-container .left .lower .columns .column-3{
+    width: 100px;
+}
+.core-container .left .lower .columns .column-4{
+    width: 100px;
+}
+.core-container .left .lower .columns .column-5{
+    width: 150px;
+}
+.core-container .left .lower .columns .column-6{
+    width: 100px;
+}
+.core-container .left .lower .columns .column-7{
+    width: 80px;
+}
+.core-container .left .lower .columns .column-8{
+    width: 80px;
+}
+
+.core-container .right{
+    padding: 5px 6px;
+}
+.core-container .right .upper{
+    background-color: rgb(0, 185, 0);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 40px;
+    border-radius: 3px;
+}
+
+.core-container .right .sales-info{
+    background-color: rgb(68, 68, 68);
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    color: white;
+}
+
+.core-container .right .sales-info .items-entry{
+    background-color: black;
+    height: 130px;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.core-container .right .sales-info h1{
+    font-size: 24px;
+}
+.core-container .right .sales-info h2{
+    text-align: center;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.core-container .right .sales-info .box1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.core-container .right .sales-info .box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+.navBar{
+    background-color: black;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 120px 120px 120px 120px 120px 120px 120px 120px 120px 120px;
+}
+.navBar button{
+    width: 100px;
+    padding: 10px 0px;
+    color: white;
+    border: transparent;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.navBar button img{
+    width: 20px;
+}
+.navBar .button1{
+    background-color: red;
+}
